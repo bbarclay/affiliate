@@ -22,6 +22,24 @@ include( 'inc/setup.php' ); // Theme setup and activation.
 include( 'inc/template-tags.php' ); // Functions for use in templates.
 include( 'inc/widget-areas.php' ); // Register widget areas.
 
+
+
+add_action( 'init', 'blockusers_init' );
+
+function blockusers_init() {
+if ( is_admin() && ! current_user_can( 'administrator' ) &&
+	! ( defined( 'DOING_AJAX' ) && DOING_AJAX ) ) {
+	wp_redirect( home_url() );
+	exit;
+	}
+}
+add_action('after_setup_theme', 'remove_admin_bar');
+ 
+function remove_admin_bar() {
+if (!current_user_can('administrator') && !is_admin()) {
+  show_admin_bar(false);
+}
+}
 // function redirect_login_page() {
 //   $login_page  = home_url( '/va-login/' );
 //   $page_viewed = basename($_SERVER['REQUEST_URI']);

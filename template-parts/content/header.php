@@ -21,9 +21,11 @@
 	<?php 
 	    if(has_post_thumbnail()) { 
 	    	$bg = get_the_post_thumbnail_url('full');
+
+	    	$style = ($bg) ? 'style="background-image: url(' . $bg . ')"' : ''; 
 		}
 	?>
-	<header class="banner" style="background-image: url(http://localhost/affiliate/wp-content/uploads/2017/08/1648.60acb395ebc688895476395af828fd7d.jpeg);">
+	<header class="banner" <?php echo $style  ?>>
 		<div class="container">
 			<h1 class="banner__title">
 				<?php echo get_the_title(); ?>
