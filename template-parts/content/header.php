@@ -79,4 +79,22 @@
 			<?php the_archive_description(); ?>
 		</div>
 	</div>
+<?php elseif ( is_page() ) : ?>
+	<?php 
+	    if(has_post_thumbnail()) { 
+	    	$bg = get_the_post_thumbnail_url('full');
+
+	    	$style = ($bg) ? 'style="background-image: url(' . $bg . ')"' : ''; 
+		}
+	?>
+	<header class="banner" <?php echo $style  ?>>
+		<div class="container">
+			<h1 class="banner__title">
+				<?php echo get_the_title(); ?>
+			</h1>
+
+		</div>
+	</header>
+
+	<?php wp_reset_postdata(); ?>
 <?php endif; ?>

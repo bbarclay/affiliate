@@ -1,4 +1,4 @@
-<article <?php post_class( 'entry--excerpt' ); ?>>
+dhf<article <?php post_class( 'entry--excerpt' ); ?>>
 	<header class="entry__header">
 		<h2 class="entry__title">
 			<a href="<?php the_permalink(); ?>">

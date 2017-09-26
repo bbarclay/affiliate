@@ -23,6 +23,21 @@
 						</div>
 
 						<div class="grid__column  grid__column--6  grid__column--m-8  grid__column--l-9  u-text-right">
+						   	<nav id="navigation" class="navigation">
+								
+									<button class="menu-toggle  js-cascade-toggle" aria-controls="navbar" data-label-close="Close">Menu</button>
+
+									<div id="navbar" class="navbar  js-cascade-navbar" itemscope itemtype="http://schema.org/SiteNavigationElement">
+										<?php
+										wp_nav_menu( array(
+											'theme_location' => 'primary',
+											'container'      => false,
+											'items_wrap'     => '<ul class="navbar__list">%3$s</ul>'
+										) );
+										?>
+									</div>
+								
+							</nav>
 							<?php if ( is_user_logged_in() ) : ?>
 								<a href="<?php echo wp_logout_url( get_home_url() ); ?>" class="button  button--alt  button--login  button--wide">Log out</a>
 							<?php else : ?>
@@ -33,21 +48,6 @@
 				</div>
 			</header>
 
-			<nav id="navigation" class="navigation">
-				<div class="container">
-					<button class="menu-toggle  js-cascade-toggle" aria-controls="navbar" data-label-close="Close">Menu</button>
-
-					<div id="navbar" class="navbar  js-cascade-navbar" itemscope itemtype="http://schema.org/SiteNavigationElement">
-						<?php
-						wp_nav_menu( array(
-							'theme_location' => 'primary',
-							'container'      => false,
-							'items_wrap'     => '<ul class="navbar__list">%3$s</ul>'
-						) );
-						?>
-					</div>
-				</div>
-			</nav>
 		</div>
 
 		<div class="site__middle">
